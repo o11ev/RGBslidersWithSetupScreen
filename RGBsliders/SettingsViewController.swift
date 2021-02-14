@@ -28,20 +28,22 @@ class SettingsViewController: UIViewController {
         redSlider.value = 1
         greenSlider.value = 1
         blueSlider.value = 1
+        
+        setViewColor()
     }
 
     @IBAction func redSliderAction() {
-        redColorLabel.text = String(format: "%.02f", redSlider.value)
+        setValue(for: redColorLabel)
         setViewColor()
     }
     
     @IBAction func greenSliderAction() {
-        greenColorLabel.text = String(format: "%.02f", greenSlider.value)
+        setValue(for: greenColorLabel)
         setViewColor()
     }
     
     @IBAction func blueSliderAction() {
-        blueColorLabel.text = String(format: "%.02f", blueSlider.value)
+        setValue(for: blueColorLabel)
         setViewColor()
     }
     
@@ -50,6 +52,21 @@ class SettingsViewController: UIViewController {
                                               green: CGFloat(greenSlider.value),
                                               blue: CGFloat(blueSlider.value),
                                               alpha: 1)
+    }
+    
+    private func setValue(for labels: UILabel...) {
+        labels.forEach { label in
+            switch label.tag {
+            case 0: redColorLabel.text = convertToString(from: redSlider)
+            case 1: greenColorLabel.text = convertToString(from: greenSlider)
+            case 2: blueColorLabel.text = convertToString(from: blueSlider)
+            default: break
+            }
+        }
+    }
+    
+    private func convertToString(from slider: UISlider) -> String {
+        String(format: "%.2f", slider.value)
     }
 }
 
