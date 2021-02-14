@@ -22,18 +22,19 @@ class SettingsViewController: UIViewController {
     @IBOutlet var greenTextField: UITextField!
     @IBOutlet var blueTextField: UITextField!
     
+    var delegate: SettingsViewControllerDelegate!
+    var newColor: UIColor!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         coloredView.layer.cornerRadius = 10
-        
-        redSlider.value = 1
-        greenSlider.value = 1
-        blueSlider.value = 1
+    
         
         redTextField.delegate = self
         greenTextField.delegate = self
         blueTextField.delegate = self
         
+        setSlidersFromColor(color: newColor)
         setViewColor()
     }
     
@@ -43,14 +44,42 @@ class SettingsViewController: UIViewController {
     }
 
     
+    @IBAction func doneButtonPressed() {
+        delegate.setColor(for: newColor)
+        dismiss(animated: true)
+    }
+    
+    
     private func setViewColor () {
         coloredView.backgroundColor = UIColor(red: CGFloat(redSlider.value),
                                               green: CGFloat(greenSlider.value),
                                               blue: CGFloat(blueSlider.value),
                                               alpha: 1)
+        newColor = coloredView.backgroundColor
     }
     
+    private func setSlidersFromColor(color: UIColor) {
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
 
+        color.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        
+        redSlider.value = Float(red)
+        greenSlider.value = Float(green)
+        blueSlider.value = Float(blue)
+        
+        // bullshit
+        redColorLabel.text = sliderConvertToString(from: redSlider)
+        greenColorLabel.text = sliderConvertToString(from: greenSlider)
+        blueColorLabel.text = sliderConvertToString(from: blueSlider)
+        
+        redTextField.text = redColorLabel.text
+        greenTextField.text = greenColorLabel.text
+        blueTextField.text = blueColorLabel.text
+    }
+    
     private func setLabelValue(for slider: UISlider) {
         let sliderValue = sliderConvertToString(from: slider)
             switch slider.tag {
