@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		048120E025C6E1220060D439 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048120DF25C6E1220060D439 /* AppDelegate.swift */; };
 		048120E225C6E1220060D439 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048120E125C6E1220060D439 /* SceneDelegate.swift */; };
-		048120E425C6E1220060D439 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048120E325C6E1220060D439 /* ViewController.swift */; };
+		048120E425C6E1220060D439 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048120E325C6E1220060D439 /* SettingsViewController.swift */; };
 		048120E725C6E1220060D439 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 048120E525C6E1220060D439 /* Main.storyboard */; };
 		048120E925C6E1230060D439 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 048120E825C6E1230060D439 /* Assets.xcassets */; };
 		048120EC25C6E1230060D439 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 048120EA25C6E1230060D439 /* LaunchScreen.storyboard */; };
+		04FBFADA25D9766F00A66CFB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FBFAD925D9766F00A66CFB /* StartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		048120DC25C6E1220060D439 /* RGBsliders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RGBsliders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		048120DF25C6E1220060D439 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		048120E125C6E1220060D439 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		048120E325C6E1220060D439 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		048120E325C6E1220060D439 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		048120E625C6E1220060D439 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		048120E825C6E1230060D439 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		048120EB25C6E1230060D439 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		048120ED25C6E1230060D439 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04FBFAD925D9766F00A66CFB /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +60,9 @@
 			children = (
 				048120DF25C6E1220060D439 /* AppDelegate.swift */,
 				048120E125C6E1220060D439 /* SceneDelegate.swift */,
-				048120E325C6E1220060D439 /* ViewController.swift */,
+				048120E325C6E1220060D439 /* SettingsViewController.swift */,
 				048120E525C6E1220060D439 /* Main.storyboard */,
+				04FBFAD925D9766F00A66CFB /* StartViewController.swift */,
 				048120E825C6E1230060D439 /* Assets.xcassets */,
 				048120EA25C6E1230060D439 /* LaunchScreen.storyboard */,
 				048120ED25C6E1230060D439 /* Info.plist */,
@@ -137,7 +140,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				048120E425C6E1220060D439 /* ViewController.swift in Sources */,
+				048120E425C6E1220060D439 /* SettingsViewController.swift in Sources */,
+				04FBFADA25D9766F00A66CFB /* StartViewController.swift in Sources */,
 				048120E025C6E1220060D439 /* AppDelegate.swift in Sources */,
 				048120E225C6E1220060D439 /* SceneDelegate.swift in Sources */,
 			);

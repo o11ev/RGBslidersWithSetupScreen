@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SettingsViewController: UIViewController {
     //view
     @IBOutlet var coloredView: UIView!
     
@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        coloredView.layer.cornerRadius = 20
+        coloredView.layer.cornerRadius = 10
         
         redSlider.value = 1
         greenSlider.value = 1
