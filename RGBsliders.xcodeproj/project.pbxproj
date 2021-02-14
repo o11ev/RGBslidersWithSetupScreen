@@ -58,11 +58,11 @@
 		048120DE25C6E1220060D439 /* RGBsliders */ = {
 			isa = PBXGroup;
 			children = (
-				048120DF25C6E1220060D439 /* AppDelegate.swift */,
-				048120E125C6E1220060D439 /* SceneDelegate.swift */,
+				04FBFAD925D9766F00A66CFB /* StartViewController.swift */,
 				048120E325C6E1220060D439 /* SettingsViewController.swift */,
 				048120E525C6E1220060D439 /* Main.storyboard */,
-				04FBFAD925D9766F00A66CFB /* StartViewController.swift */,
+				048120DF25C6E1220060D439 /* AppDelegate.swift */,
+				048120E125C6E1220060D439 /* SceneDelegate.swift */,
 				048120E825C6E1230060D439 /* Assets.xcassets */,
 				048120EA25C6E1230060D439 /* LaunchScreen.storyboard */,
 				048120ED25C6E1230060D439 /* Info.plist */,

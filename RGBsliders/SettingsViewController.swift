@@ -28,27 +28,25 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         coloredView.layer.cornerRadius = 10
-    
         
         redTextField.delegate = self
         greenTextField.delegate = self
         blueTextField.delegate = self
         
         setSlidersFromColor(color: newColor)
+        setColorValues()
         setViewColor()
     }
     
     @IBAction func sliderAction(_ sender: UISlider) {
-        setLabelValue(for: sender)
+        setColorValues()
         setViewColor()
     }
-
     
     @IBAction func doneButtonPressed() {
         delegate.setColor(for: newColor)
         dismiss(animated: true)
     }
-    
     
     private func setViewColor () {
         coloredView.backgroundColor = UIColor(red: CGFloat(redSlider.value),
@@ -63,64 +61,41 @@ class SettingsViewController: UIViewController {
         var green: CGFloat = 0
         var blue: CGFloat = 0
         var alpha: CGFloat = 0
-
+        
         color.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
         
         redSlider.value = Float(red)
         greenSlider.value = Float(green)
         blueSlider.value = Float(blue)
-        
-        // bullshit
-        redColorLabel.text = sliderConvertToString(from: redSlider)
-        greenColorLabel.text = sliderConvertToString(from: greenSlider)
-        blueColorLabel.text = sliderConvertToString(from: blueSlider)
-        
-        redTextField.text = redColorLabel.text
-        greenTextField.text = greenColorLabel.text
-        blueTextField.text = blueColorLabel.text
     }
     
-    private func setLabelValue(for slider: UISlider) {
-        let sliderValue = sliderConvertToString(from: slider)
-            switch slider.tag {
-            case 0:
-                redColorLabel.text = sliderValue
-                redTextField.text = sliderValue
-            case 1:
-                greenColorLabel.text = sliderValue
-                greenTextField.text = sliderValue
-            case 2:
-                blueColorLabel.text = sliderValue
-                blueTextField.text = sliderValue
-            default: break
-        }
-    }
-    
-    private func sliderConvertToString(from slider: UISlider) -> String {
+    private func sliderToShortString(from slider: UISlider) -> String {
         String(format: "%.2f", slider.value)
     }
     
-    
-    private func setTextFieldValue(for textField: UITextField) {
-        guard let textFieldValue = Float(textField.text ?? "") else { return }
-            switch textField.tag {
-            case 0:
-                redColorLabel.text = textField.text
-                redSlider.value = textFieldValue
-            case 1:
-                greenColorLabel.text = textField.text
-                greenSlider.value = textFieldValue
-            case 2:
-                blueColorLabel.text = textField.text
-                blueSlider.value = textFieldValue
-            default: break
-        }
+    private func setColorValues() {
+        redTextField.text = sliderToShortString(from: redSlider)
+        greenTextField.text = sliderToShortString(from: greenSlider)
+        blueTextField.text = sliderToShortString(from: blueSlider)
+        
+        redColorLabel.text = sliderToShortString(from: redSlider)
+        greenColorLabel.text = sliderToShortString(from: greenSlider)
+        blueColorLabel.text = sliderToShortString(from: blueSlider)
     }
 }
 
 extension SettingsViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
-       setTextFieldValue(for: textField)
-       setViewColor()
+        guard let textFieldValue = Float(textField.text ?? "") else { return }
+        
+        switch textField.tag {
+        case 0: redSlider.value = textFieldValue
+        case 1: greenSlider.value = textFieldValue
+        case 2: blueSlider.value = textFieldValue
+        default: break
+        }
+        
+        setColorValues()
+        setViewColor()
     }
 }
