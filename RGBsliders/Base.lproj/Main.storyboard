@@ -104,17 +104,17 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ly5-Ry-bGY">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Onm-PO-rnI">
+                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Onm-PO-rnI">
                                                 <rect key="frame" x="0.0" y="44" width="50" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cUs-rn-86Z">
+                                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cUs-rn-86Z">
                                                 <rect key="frame" x="0.0" y="88" width="50" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -148,11 +148,14 @@
                     <connections>
                         <outlet property="blueColorLabel" destination="KRT-oa-wbp" id="5ra-4E-izX"/>
                         <outlet property="blueSlider" destination="LqT-gt-CpP" id="t7R-CD-aXT"/>
+                        <outlet property="blueTextField" destination="cUs-rn-86Z" id="Yve-Ky-0jl"/>
                         <outlet property="coloredView" destination="kNI-MC-bWu" id="DgG-RI-xpr"/>
                         <outlet property="greenColorLabel" destination="J19-Vq-kSs" id="f0e-Fv-ahk"/>
                         <outlet property="greenSlider" destination="Akr-Qv-BJb" id="65L-Mc-LBI"/>
+                        <outlet property="greenTextField" destination="Onm-PO-rnI" id="nRE-qP-IHk"/>
                         <outlet property="redColorLabel" destination="CVJ-A0-lRo" id="ByA-iZ-S0z"/>
                         <outlet property="redSlider" destination="qHa-vh-oYs" id="c0B-Sp-yXt"/>
+                        <outlet property="redTextField" destination="Ly5-Ry-bGY" id="67d-wR-GdJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

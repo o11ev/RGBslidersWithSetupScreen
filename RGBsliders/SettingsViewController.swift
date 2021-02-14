@@ -8,18 +8,19 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-    //view
     @IBOutlet var coloredView: UIView!
     
-    //labels
     @IBOutlet var redColorLabel: UILabel!
     @IBOutlet var greenColorLabel: UILabel!
     @IBOutlet var blueColorLabel: UILabel!
     
-    //sliders
     @IBOutlet var redSlider: UISlider!
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
+    
+    @IBOutlet var redTextField: UITextField!
+    @IBOutlet var greenTextField: UITextField!
+    @IBOutlet var blueTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,18 +34,21 @@ class SettingsViewController: UIViewController {
     }
 
     @IBAction func redSliderAction() {
-        setValue(for: redColorLabel)
+        setLabelValue(for: redColorLabel)
         setViewColor()
+        setTextFieldValue(for: redTextField)
     }
     
     @IBAction func greenSliderAction() {
-        setValue(for: greenColorLabel)
+        setLabelValue(for: greenColorLabel)
         setViewColor()
+        setTextFieldValue(for: greenTextField)
     }
     
     @IBAction func blueSliderAction() {
-        setValue(for: blueColorLabel)
+        setLabelValue(for: blueColorLabel)
         setViewColor()
+        setTextFieldValue(for: blueTextField)
     }
     
     private func setViewColor () {
@@ -54,19 +58,39 @@ class SettingsViewController: UIViewController {
                                               alpha: 1)
     }
     
-    private func setValue(for labels: UILabel...) {
+    private func setLabelValue(for labels: UILabel...) {
         labels.forEach { label in
             switch label.tag {
-            case 0: redColorLabel.text = convertToString(from: redSlider)
-            case 1: greenColorLabel.text = convertToString(from: greenSlider)
-            case 2: blueColorLabel.text = convertToString(from: blueSlider)
+            case 0: redColorLabel.text = sliderConvertToString(from: redSlider)
+            case 1: greenColorLabel.text = sliderConvertToString(from: greenSlider)
+            case 2: blueColorLabel.text = sliderConvertToString(from: blueSlider)
             default: break
             }
         }
     }
     
-    private func convertToString(from slider: UISlider) -> String {
+    private func sliderConvertToString(from slider: UISlider) -> String {
         String(format: "%.2f", slider.value)
     }
+    
+    
+    private func setTextFieldValue(for textFields: UITextField...) {
+        textFields.forEach { textField in
+            switch textField.tag {
+            case 0: redTextField.text = sliderConvertToString(from: redSlider)
+            case 1: greenTextField.text = sliderConvertToString(from: greenSlider)
+            case 2: blueTextField.text = sliderConvertToString(from: blueSlider)
+            default: break
+            }
+        }
+    }
+    
 }
 
+extension SettingsViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let newValue = textField.text else { return }
+        guard let numberValue = Int(newValue) else { return }
+        
+    }
+}
